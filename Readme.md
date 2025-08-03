@@ -7,131 +7,105 @@ A beginner-friendly guide to essential Git commands.
 ## 📦 Project Setup
 
 ### `git init`
-Initializes a new Git repository in your current directory.
+Initializes a new Git repository in your current directory. It creates a hidden `.git/` folder to start tracking your project. Run this command only once at the beginning of a project.
+
 ```bash
 git init
-Creates a hidden .git/ folder to start version control.
-
-Run this once at the beginning of a project.
-
 📂 File Status & Changes
 git status
-Displays the state of the working directory and staging area.
+Displays the state of the working directory and staging area. It shows you which files are modified, staged for the next commit, or untracked.
 
-bash
-Copy
-Edit
+Bash
+
 git status
-Shows which files are modified, staged, or untracked.
-
 git add
-Stages changes for commit.
+Stages changes, preparing them for the next commit. You can add specific files or all changes.
 
-bash
-Copy
-Edit
-git add <filename>     # Add specific file
-git add .              # Add all changes in current directory
-Prepares files for the next commit.
+Bash
 
+# Add a specific file
+git add <filename>
+
+# Add all changes in the current directory
+git add .
 git commit -m "message"
-Records the staged changes to the repository with a message.
+Records the staged changes to the repository's history. Each commit is a snapshot of your project at a specific point in time and should have a meaningful message describing the change.
 
-bash
-Copy
-Edit
-git commit -m "Your commit message"
-Each commit should have a meaningful message describing the change.
+Bash
 
+git commit -m "Your meaningful commit message"
 🌱 Branching
 git branch
-Lists all local branches.
+Lists all local branches in the current repository. The active branch will be marked with an asterisk (*).
 
-bash
-Copy
-Edit
+Bash
+
 git branch
 git branch <branchname>
-Creates a new branch.
+Creates a new branch. This doesn't switch you to the new branch.
 
-bash
-Copy
-Edit
+Bash
+
 git branch feature-x
 git checkout <branchname>
-Switches to the specified branch.
+Switches your working directory to the specified branch.
 
-bash
-Copy
-Edit
+Bash
+
 git checkout feature-x
 🔁 Merging & Restoring
 git merge <branchname>
-Merges the specified branch into the current branch.
+Merges the history of the specified branch into your current branch. Make sure you are on the branch you want to merge into before running this command.
 
-bash
-Copy
-Edit
+Bash
+
 git merge feature-x
-Make sure you're on the branch you want to merge into.
-
 git restore <filename>
-Restores a file to the last committed state (undo changes).
+Restores a file to the state it was in at the last commit, discarding any changes you've made in your working directory. This does not affect your commit history.
 
-bash
-Copy
-Edit
+Bash
+
 git restore index.html
-Does not affect the commit history.
-
 🔙 Resetting Changes
 git reset <filename>
-Unstages a file from the staging area (but keeps changes).
+Unstages a file from the staging area but keeps the modifications in your working directory. This is useful if you accidentally staged a file with git add.
 
-bash
-Copy
-Edit
+Bash
+
 git reset index.html
-Useful if you accidentally staged a file.
-
 🔗 Remote Repositories
 git remote -v
-Lists the remote repositories connected to your project.
+Lists the remote repositories connected to your local project, showing their URLs for fetching and pushing.
 
-bash
-Copy
-Edit
+Bash
+
 git remote -v
-Shows URL(s) for fetch and push.
-
 🕒 Viewing History
 git log
-Shows the commit history for the current branch.
+Shows the commit history for the current branch. Press q to exit the log view.
 
-bash
-Copy
-Edit
+Bash
+
 git log
-Press q to exit log view.
-
 ✅ Quick Reference Table
 Command	Description
 git init	Initialize a new repo
-git status	Check status of working directory
-git add	Stage changes
-git commit -m	Commit with message
-git branch	List branches
+git status	Check the status of the working directory
+git add <file>	Stage changes for commit
+git commit -m "msg"	Commit staged changes with a message
+git branch	List all branches
 git branch <name>	Create a new branch
-git checkout <name>	Switch branches
-git merge <name>	Merge a branch
-git restore <file>	Restore a file
+git checkout <name>	Switch to a different branch
+git merge <name>	Merge a branch into the current branch
+git restore <file>	Restore a file to its last committed state
 git reset <file>	Unstage a file
-git remote -v	Show remotes
-git log	View commit history
+git remote -v	Show configured remote repositories
+git log	View the commit history
 
+Export to Sheets
 ✍️ Tips
-Always git status before committing to check what’s changed.
+Always run git status before adding or committing to see exactly what you're changing.
 
-Use meaningful commit messages.
+Write clear and meaningful commit messages.
 
-Use branches to separate features or bug fixes.
+Use branches to separate work on different features or bug fixes to keep your main branch clean.
